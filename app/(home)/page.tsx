@@ -2,52 +2,40 @@ import Link from "next/link";
 
 const features = [
   {
-    icon: "📚",
     title: "Your First Day",
     description: "Step-by-step walkthrough — from spawning in to building your first base.",
     href: "/docs/guides/starter",
-    color: "from-emerald-500/10 to-transparent",
-    borderHover: "hover:border-emerald-500/30",
+    image: "/images/starter.jpg",
   },
   {
-    icon: "🛡️",
     title: "Protecting Your Builds",
     description: "How to claim land, manage permissions, and keep your stuff safe.",
     href: "/docs/guides/claims",
-    color: "from-blue-500/10 to-transparent",
-    borderHover: "hover:border-blue-500/30",
+    image: "/images/claims.jpg",
   },
   {
-    icon: "⚔️",
     title: "Skills & Progression",
     description: "Your character grows with everything you do — mining, fighting, farming, and more.",
     href: "/docs/guides/auraskills",
-    color: "from-red-500/10 to-transparent",
-    borderHover: "hover:border-red-500/30",
+    image: "/images/skills.jpg",
   },
   {
-    icon: "✨",
     title: "Enchantments",
     description: "80+ custom enchantments like Veinminer, Treefeller, Vampire, and Explosive Arrows.",
     href: "/docs/guides/enchants",
-    color: "from-purple-500/10 to-transparent",
-    borderHover: "hover:border-purple-500/30",
+    image: "/images/enchants.jpg",
   },
   {
-    icon: "📜",
     title: "Server Rules",
     description: "PvP, fair play, trading, and account policies.",
     href: "/docs/rules",
-    color: "from-amber-500/10 to-transparent",
-    borderHover: "hover:border-amber-500/30",
+    image: "/images/bounty.jpg",
   },
   {
-    icon: "❓",
     title: "FAQ & Extras",
     description: "Guilds, skins, bounties, voting, Discord linking, and account recovery.",
     href: "/docs/faq",
-    color: "from-cyan-500/10 to-transparent",
-    borderHover: "hover:border-cyan-500/30",
+    image: "/images/world-bg.jpg",
   },
 ];
 
@@ -65,9 +53,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{
-            backgroundImage: "url(https://mcpangea.com/assets/pangea-world-bg-D1twRMw_.jpg)",
-          }}
+          style={{ backgroundImage: "url(/images/world-bg.jpg)" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(24,10%,7%)] via-[hsl(24,10%,7%,0.6)] to-[hsl(24,10%,7%)]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(40,90%,52%,0.03)] via-transparent to-[hsl(40,90%,52%,0.03)]" />
@@ -78,7 +64,7 @@ export default function HomePage() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-full bg-[hsl(40,90%,52%,0.15)] blur-2xl" />
                 <img
-                  src="https://mcpangea.com/assets/logo-CmBtdJut.png"
+                  src="/images/logo.png"
                   alt="PangeaMC Logo"
                   className="relative h-24 w-24 drop-shadow-[0_0_30px_hsl(40,90%,52%,0.35)]"
                 />
@@ -151,20 +137,24 @@ export default function HomePage() {
               <Link
                 key={f.href}
                 href={f.href}
-                className={`group relative overflow-hidden rounded-xl border border-[hsl(25,8%,16%)] bg-[hsl(25,10%,9%)] p-6 transition-all duration-300 ${f.borderHover} hover:bg-[hsl(25,10%,10%)] hover:shadow-lg hover:shadow-black/20`}
+                className="group relative overflow-hidden rounded-xl border border-[hsl(25,8%,16%)] bg-[hsl(25,10%,9%)] transition-all duration-300 hover:border-[hsl(40,80%,45%,0.3)] hover:shadow-lg hover:shadow-black/20"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${f.color} opacity-0 transition-opacity group-hover:opacity-100`} />
-                <div className="relative">
-                  <div className="mb-4 text-3xl transition-transform duration-300 group-hover:scale-110">
-                    {f.icon}
-                  </div>
-                  <h3 className="mb-2 font-semibold text-[hsl(35,10%,88%)] transition-colors group-hover:text-white">
+                <div className="relative h-36 overflow-hidden">
+                  <img
+                    src={f.image}
+                    alt={f.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(25,10%,9%)] via-[hsl(25,10%,9%,0.4)] to-transparent" />
+                </div>
+                <div className="relative p-5 pt-2">
+                  <h3 className="mb-1.5 font-semibold text-[hsl(35,10%,88%)] transition-colors group-hover:text-[hsl(40,85%,65%)]">
                     {f.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-[hsl(30,6%,48%)]">
                     {f.description}
                   </p>
-                  <div className="mt-4 flex items-center text-xs font-medium text-[hsl(40,80%,52%)] opacity-0 transition-all group-hover:opacity-100">
+                  <div className="mt-3 flex items-center text-xs font-medium text-[hsl(40,80%,52%)] opacity-0 transition-all group-hover:opacity-100">
                     Read guide
                     <svg className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -216,7 +206,7 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-6 py-10 text-center">
           <div className="flex items-center gap-2.5">
             <img
-              src="https://mcpangea.com/assets/logo-CmBtdJut.png"
+              src="/images/logo.png"
               alt="PangeaMC"
               className="h-5 w-5 opacity-80"
             />
