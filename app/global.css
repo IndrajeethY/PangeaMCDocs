@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+.dark ::-webkit-scrollbar-thumb { background: hsl(25 8% 22%); border-radius: 3px; }
+.dark ::-webkit-scrollbar-thumb:hover { background: hsl(40 90% 50%); }
+
+/* ─── Gold headings in docs ─── */
+.dark .prose h1,
+.dark .prose h2 {
+  color: hsl(40 85% 65%);
+}
+
+.dark .prose h3 {
+  color: hsl(35 12% 82%);
+}
+
+/* ─── Inline code ─── */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+.dark .prose :not(pre) > code {
+  background: hsl(25 12% 13%);
+  border: 1px solid hsl(25 8% 20%);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.875em;
+  color: hsl(40 85% 65%);
+}
+
+/* ─── Links in prose ─── */
+.dark .prose a {
+  color: hsl(40 85% 60%);
+  text-decoration-color: hsl(40 85% 60% / 0.3);
+}
+
+.dark .prose a:hover {
+  color: hsl(40 90% 70%);
+}
+
+/* ─── Table styling ─── */
+.dark .prose th {
+  background: hsl(25 10% 12%);
+  color: hsl(40 80% 62%);
+}
+
+.dark .prose table td {
+  border-color: hsl(25 8% 16%);
+}
+
+.dark .prose tr:nth-child(even) {
+  background: hsl(25 10% 9%);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: hsl(40 90% 52% / 0.2);
+  color: hsl(40 85% 70%);
+}
