@@ -124,9 +124,10 @@ export function EnchantSearch() {
             <button
               key={cat}
               onClick={() => setCategory(cat)}
+              style={category === cat ? { color: "#000" } : undefined}
               className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
                 category === cat
-                  ? "bg-[hsl(40,90%,48%)] text-[hsl(24,10%,7%)]"
+                  ? "bg-[hsl(40,90%,48%)]"
                   : "border border-[hsl(25,8%,20%)] bg-[hsl(25,10%,10%)] text-[hsl(30,6%,55%)] hover:border-[hsl(40,80%,45%,0.3)] hover:text-[hsl(35,10%,80%)]"
               }`}
             >
